@@ -1,0 +1,71 @@
+<html lang="en" data-theme="cyber">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DISCOUNT_PROTOCOL v2.0</title>
+
+</head>
+
+<body>
+  <canvas id="matrix-canvas"></canvas>
+  <div class="noise"></div>
+  <div class="scan-line"></div>
+
+  <button class="history-toggle" onclick="toggleHistory()">⌘ HISTORY</button>
+
+  <div class="history-panel" id="historyPanel">
+    <h2 style="margin-bottom: 2rem; color: var(--neon-cyan); font-family: 'Syncopate', sans-serif;">// LOGS</h2>
+    <div id="historyList"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-section">
+      <div class="glitch-wrapper">
+        <h1 class="glitch" data-text="DISCOUNT_PROTOCOL">DISCOUNT_PROTOCOL</h1>
+      </div>
+      <div class="subtitle">
+        Advanced price calculation algorithms<br>
+        v2.0.4 // BUILD 2024
+      </div>
+      <div style="margin-top: 3rem; font-size: 0.8rem; opacity: 0.6;">
+        <span style="color: var(--neon-pink)">></span> System ready<br>
+        <span style="color: var(--neon-pink)">></span> Waiting for input...
+      </div>
+    </div>
+
+    <div class="calc-container" id="calcCard">
+      <div class="particles" id="particles"></div>
+
+      <div class="input-group">
+        <input type="text" class="input-field" id="priceInput" placeholder=" " oninput="validatePrice(this)">
+        <span class="input-icon">$</span>
+        <label class="floating-label">PRICE_VALUE</label>
+        <div class="error-msg" id="priceError"></div>
+        <input type="range" class="range-slider" id="priceSlider" min="1" max="1000" value="50" oninput="syncPrice(this)">
+      </div>
+
+      <div class="input-group">
+        <input type="text" class="input-field" id="discountInput" placeholder=" " oninput="validateDiscount(this)">
+        <span class="input-icon">%</span>
+        <label class="floating-label">DISCOUNT_PERCENT</label>
+        <div class="error-msg" id="discountError"></div>
+        <input type="range" class="range-slider" id="discountSlider" min="0" max="100" value="20" oninput="syncDiscount(this)">
+      </div>
+
+      <button class="calc-btn" onclick="execute()">
+        INITIALIZE_CALCULATION
+      </button>
+
+      <div class="visualizer" id="visualizer"></div>
+
+      <div class="result-container" id="resultBox">
+        <div class="result-label">FINAL_PRICE</div>
+        <div class="result-value" id="resultValue">$0.00</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
